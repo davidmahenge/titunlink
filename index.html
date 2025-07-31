@@ -20,17 +20,40 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
     />
-    <!-- <link rel="stylesheet" href="main.css" /> -->
     <style>
       body {
         font-family: 'Poppins', sans-serif;
-        font-size: 14px; /* Reduced base font size for a cleaner look */
+        font-size: 14px;
       }
       .section-heading {
-        @apply text-2xl font-semibold text-yellow-600 mb-6 text-left; /* Reduced from 4xl (36px) to 2xl (24px) */
+        @apply text-2xl font-semibold text-yellow-600 mb-6 text-left;
       }
       .card {
         @apply bg-white rounded-lg shadow-lg p-6 transition-transform duration-300 hover:scale-105;
+      }
+      /* Add padding to sections to account for sticky header */
+      section[id] {
+        scroll-margin-top: 80px; /* Matches header height */
+      }
+      /* Vertical slide-in for desktop nav */
+      #desktop-nav a {
+        opacity: 0;
+        transform: translateY(-20px);
+        transition: opacity 0.5s ease, transform 0.5s ease;
+      }
+      #desktop-nav a.aos-animate {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      /* Vertical slide-in for mobile nav */
+      #mobile-nav a {
+        opacity: 0;
+        transform: translateY(-10px);
+        transition: opacity 0.4s ease, transform 0.4s ease;
+      }
+      #mobile-nav:not(.hidden) a {
+        opacity: 1;
+        transform: translateY(0);
       }
     </style>
   </head>
@@ -49,9 +72,7 @@
           <h1 class="text-xl font-bold text-yellow-600">
             Titun Link Enterprise
           </h1>
-          <!-- Reduced from 2xl (24px) to xl (20px) -->
         </div>
-        <!-- Hamburger Button (Mobile) -->
         <button
           id="nav-toggle"
           class="md:hidden text-white focus:outline-none"
@@ -63,7 +84,6 @@
             stroke="currentColor"
             viewBox="0 0 24 24"
           >
-            <!-- Reduced icon size -->
             <path
               stroke-linecap="round"
               stroke-linejoin="round"
@@ -72,83 +92,123 @@
             />
           </svg>
         </button>
-        <!-- Desktop Nav -->
-        <nav class="hidden md:flex space-x-6 text-white font-medium text-sm" aria-label="Primary navigation" id="desktop-nav">
-          <!-- Reduced from default (16px) to sm (14px) -->
+        <nav
+          class="hidden md:flex space-x-6 text-white font-medium text-sm"
+          aria-label="Primary navigation"
+          id="desktop-nav"
+        >
           <a
             href="#home"
             class="hover:text-yellow-400 transition-colors"
+            data-aos="fade-down"
+            data-aos-delay="0"
             >Home</a
           >
           <a
             href="#about"
             class="hover:text-yellow-400 transition-colors"
+            data-aos="fade-down"
+            data-aos-delay="100"
             >About</a
           >
           <a
             href="#departments"
             class="hover:text-yellow-400 transition-colors"
+            data-aos="fade-down"
+            data-aos-delay="200"
             >Departments</a
           >
           <a
             href="#team"
             class="hover:text-yellow-400 transition-colors"
+            data-aos="fade-down"
+            data-aos-delay="300"
             >Team</a
           >
           <a
             href="#contact"
             class="hover:text-yellow-400 transition-colors"
+            data-aos="fade-down"
+            data-aos-delay="400"
             >Contact</a
           >
         </nav>
       </div>
-      <!-- Mobile Nav -->
       <nav
         id="mobile-nav"
-        class="md:hidden hidden px-4 pb-4" aria-label="Secondary navigation"
+        class="md:hidden hidden px-4 pb-4"
+        aria-label="Secondary navigation"
       >
         <div
           class="flex flex-col space-y-2 text-white font-medium text-sm bg-teal-900 rounded-lg shadow-lg"
         >
-          <!-- Reduced to sm (14px) -->
           <a
             href="#home"
             class="hover:text-yellow-400 transition-colors py-2 px-2"
+            data-aos="fade-down"
+            data-aos-delay="0"
             >Home</a
           >
           <a
             href="#about"
             class="hover:text-yellow-400 transition-colors py-2 px-2"
+            data-aos="fade-down"
+            data-aos-delay="100"
             >About</a
           >
           <a
             href="#departments"
             class="hover:text-yellow-400 transition-colors py-2 px-2"
+            data-aos="fade-down"
+            data-aos-delay="200"
             >Departments</a
           >
           <a
             href="#team"
             class="hover:text-yellow-400 transition-colors py-2 px-2"
+            data-aos="fade-down"
+            data-aos-delay="300"
             >Team</a
           >
           <a
             href="#contact"
             class="hover:text-yellow-400 transition-colors py-2 px-2"
+            data-aos="fade-down"
+            data-aos-delay="400"
             >Contact</a
           >
         </div>
       </nav>
       <script>
-        // Simple mobile nav toggle
+        // Mobile nav toggle
         const navToggle = document.getElementById('nav-toggle')
         const mobileNav = document.getElementById('mobile-nav')
         navToggle.addEventListener('click', () => {
           mobileNav.classList.toggle('hidden')
+          // Trigger AOS refresh for mobile nav animations
+          if (!mobileNav.classList.contains('hidden')) {
+            AOS.refresh()
+          }
         })
-        // Optional: Hide mobile nav on link click
-        mobileNav.querySelectorAll('a').forEach((link) => {
-          link.addEventListener('click', () => {
-            mobileNav.classList.add('hidden')
+        // Smooth scroll with offset for nav links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener('click', function (e) {
+            e.preventDefault()
+            const targetId = this.getAttribute('href').substring(1)
+            const targetElement = document.getElementById(targetId)
+            if (targetElement) {
+              const headerHeight = document.querySelector('header').offsetHeight
+              const targetPosition =
+                targetElement.getBoundingClientRect().top +
+                window.pageYOffset -
+                headerHeight
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth',
+              })
+              // Hide mobile nav after click
+              mobileNav.classList.add('hidden')
+            }
           })
         })
       </script>
@@ -160,7 +220,7 @@
       <section
         id="home"
         class="relative flex items-center justify-center text-center py-32 bg-teal-900 min-h-[60vh]"
-        data-aos="fade-up"
+        data-aos="fade-in"
         style="
           background-image: url('uploads/hero-bg.jpg');
           background-size: cover;
@@ -168,13 +228,13 @@
         "
       >
         <div class="absolute inset-0 bg-teal-900 bg-opacity-60"></div>
+
         <div class="relative z-10 max-w-4xl mx-auto px-4">
           <h2 class="text-3xl font-bold text-white max-w-500 mb-6 text-left">
             Titun Link Enterprise Limited
           </h2>
-          <!-- Reduced from 5xl (48px) to 3xl (30px) -->
           <h3
-            class="text-base text-teal-900 max-w-3xl mx-auto mb-8 bg-white bg-opacity-65 rounded-lg p-0 rounded-lg p-4"
+            class="text-base text-teal-900 max-w-3xl mx-auto mb-8 bg-white bg-opacity-65 rounded-lg p-4"
           >
             Titun Link Enterprise is a leading provider of high-quality mining
             supplies and equipment, dedicated to supporting the mining industry
@@ -188,7 +248,6 @@
             class="inline-block text-teal-900 bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors"
             >Discover Our Services</a
           >
-          <!-- Reduced padding and text-sm (14px) -->
         </div>
       </section>
 
@@ -196,7 +255,7 @@
       <section
         id="about"
         class="py-5 px-4 max-w-7xl mx-auto"
-        data-aos="fade-up"
+        data-aos="fade-in"
       >
         <h2 class="text-2xl font-semibold text-teal-900 mb-6 text-center">
           About Our Company
@@ -223,7 +282,7 @@
       <section
         id="departments"
         class="py-5 px-4 max-w-7xl mx-auto"
-        data-aos="fade-up"
+        data-aos="fade-in"
       >
         <h2 class="text-2xl font-semibold text-teal-900 mb-6 text-center">
           Our Departments
@@ -242,14 +301,10 @@
           <!-- Explosives -->
           <div
             class="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:scale-105 hover:opacity-90"
-            data-aos="zoom-in"
-            data-aos-delay="0"
           >
             <h3 class="text-xl font-bold text-teal-900 mb-4 text-left">
               Explosives
             </h3>
-            <!-- Reduced from 3xl (30px) to xl (20px) -->
-
             <p class="text-gray-600 mb-6 text-sm">
               Our explosives are sourced from reputable manufacturers, ensuring
               compliance with international safety standards and regulations. We
@@ -258,8 +313,8 @@
               mining and demolition projects.
             </p>
             <p class="text-gray-600 mb-6 text-sm">
-              We provide safe, regulated explosives for mining,construction, and
-              demolition, adhering to strict safety standards and legal
+              We provide safe, regulated explosives for mining, construction,
+              and demolition, adhering to strict safety standards and legal
               compliance. Count on us for reliable solutions and expert support.
             </p>
             <p class="text-gray-600 mb-6 text-sm">
@@ -285,24 +340,27 @@
                 src="https://www.intrachem.co.zw/wp-content/uploads/2018/09/explogel-v4-760x424.jpg"
                 class="h-64 w-full object-cover rounded-lg shadow"
                 alt="Explosives 1"
-                data-aos="fade-up"
+                data-aos="fade-in"
                 data-aos-delay="100"
+                data-aos-out="fade-out"
                 loading="lazy"
               />
               <img
                 src="https://www.famesaexplosivos.com/wp-content/uploads/2023/12/CARMEX-Mecha-ensamblada-scaled-1.jpg"
                 class="h-64 w-full object-cover rounded-lg shadow"
                 alt="Explosives 2"
-                data-aos="fade-up"
+                data-aos="fade-in"
                 data-aos-delay="200"
+                data-aos-out="fade-out"
                 loading="lazy"
               />
               <img
                 src="https://nn.credotrans.ru/wp-content/uploads/sites/3/2020/06/zapalniki-elektryczne-skalne.jpg"
                 class="h-64 w-full object-cover rounded-lg shadow"
                 alt="Explosives 3"
-                data-aos="fade-up"
+                data-aos="fade-in"
                 data-aos-delay="300"
+                data-aos-out="fade-out"
                 loading="lazy"
               />
             </div>
@@ -310,14 +368,10 @@
           <!-- Chemicals -->
           <div
             class="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:scale-105 hover:opacity-90"
-            data-aos="zoom-in"
-            data-aos-delay="100"
           >
             <h3 class="text-xl font-bold text-teal-900 mb-4 text-left">
               Chemicals
             </h3>
-            <!-- Reduced from 3xl (30px) to xl (20px) -->
-
             <p class="text-gray-600 mb-6 text-sm">
               Our chemicals are sourced from reputable suppliers, ensuring
               compliance with international safety standards and regulations. We
@@ -344,7 +398,6 @@
               High-quality chemicals including Sodium Cyanide, Ammonium Nitrate,
               Caustic Soda, Mercury, and more.
             </p>
-            <!-- Reduced to sm (14px) -->
             <ul class="list-disc list-inside text-gray-600 mb-6 text-sm">
               <li>
                 <span class="font-semibold">Sodium Cyanide:</span> Essential for
@@ -368,24 +421,27 @@
                 src="https://www.cnfreereagent.com/wp-content/uploads/2022/01/sodium-cyanide-use-in-gold-mining.jpg"
                 class="h-64 w-full object-cover rounded-lg shadow"
                 alt="Chemicals 1"
-                data-aos="fade-up"
+                data-aos="fade-in"
                 data-aos-delay="100"
+                data-aos-out="fade-out"
                 loading="lazy"
               />
               <img
                 src="https://www.epc-groupe.co.uk/wp-content/uploads/2019/01/Amonium-Nitrate.jpg"
                 class="h-64 w-full object-cover rounded-lg shadow"
                 alt="Chemicals 2"
-                data-aos="fade-up"
+                data-aos="fade-in"
                 data-aos-delay="200"
+                data-aos-out="fade-out"
                 loading="lazy"
               />
               <img
                 src="https://image.made-in-china.com/202f0j00AaobhNSDfkqE/1000-IV-Crushed-Carbon-Manufacturer.webp"
                 class="h-64 w-full object-cover rounded-lg shadow"
                 alt="Chemicals 3"
-                data-aos="fade-up"
+                data-aos="fade-in"
                 data-aos-delay="300"
+                data-aos-out="fade-out"
                 loading="lazy"
               />
             </div>
@@ -393,13 +449,10 @@
           <!-- Car Rental -->
           <div
             class="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:scale-105 hover:opacity-90"
-            data-aos="zoom-in"
-            data-aos-delay="200"
           >
             <h3 class="text-xl font-bold text-teal-900 mb-4 text-left">
               Car Rental
             </h3>
-            <!-- Reduced from 3xl (30px) to xl (20px) -->
             <p class="text-gray-600 mb-6 text-sm">
               Titun Link partners with prestigious hotels like Hyatt and Johari
               Lotana to provide exceptional car rental services for guests. This
@@ -437,7 +490,7 @@
             </p>
             <div>
               <p class="text-gray-600 mb-6 text-sm">
-                CARPICKUP & DROPOFF : [SELF DRIVEN OR CHAUFFEUR DRIVEN]
+                CAR PICKUP & DROPOFF: [SELF DRIVEN OR CHAUFFEUR DRIVEN]
               </p>
               <ul class="list-disc list-inside text-gray-600 mb-6 text-sm">
                 <li>JULIUS NYERERE INTERNATIONAL AIRPORT</li>
@@ -450,24 +503,27 @@
                 src="https://images.automatrix.com/1/93377/59XrEgEp857.jpg"
                 class="h-64 w-full object-cover rounded-lg shadow"
                 alt="Car 1"
-                data-aos="fade-up"
+                data-aos="fade-in"
                 data-aos-delay="100"
+                data-aos-out="fade-out"
                 loading="lazy"
               />
               <img
                 src="https://crdms.images.consumerreports.org/c_lfill,w_563,q_auto,f_auto/prod/cars/chrome/white/2011TOY016a_640_01"
                 class="h-64 w-full object-cover rounded-lg shadow"
                 alt="Car 2"
-                data-aos="fade-up"
+                data-aos="fade-in"
                 data-aos-delay="200"
+                data-aos-out="fade-out"
                 loading="lazy"
               />
               <img
                 src="https://kupatana.com/api/v1/filestorage/image/large/77a2543a3bd0995e14e536d9a8df5984.jpg"
                 class="h-64 w-full object-cover rounded-lg shadow"
                 alt="Car 3"
-                data-aos="fade-up"
+                data-aos="fade-in"
                 data-aos-delay="300"
+                data-aos-out="fade-out"
                 loading="lazy"
               />
             </div>
@@ -479,12 +535,11 @@
       <section
         id="team"
         class="py-5 px-4 max-w-7xl mx-auto"
-        data-aos="fade-up"
+        data-aos="fade-in"
       >
         <h2 class="text-2xl font-semibold text-teal-900 mb-6 text-center">
           Meet the Team
         </h2>
-        <!-- Reduced from 4xl (36px) to 2xl (24px) -->
         <p class="text-sm text-gray-600 mb-12 text-center">
           The future of Africa's mining industry shines bright with immense
           potential to drive economic growth, innovation, and sustainable
@@ -494,32 +549,28 @@
           challenges into opportunities. Together, we can build a thriving,
           inclusive mining sector that not only supports industrial growth but
           also uplifts lives and contributes to a prosperous future for Africa
-          and TITUN LINK will be part of the forefront of that endeavour
+          and TITUN LINK will be part of the forefront of that endeavour.
         </p>
         <p class="text-sm text-gray-600 mb-12 text-center">
-          <!-- Reduced from lg (18px) to sm (14px) -->
           United by a passion for excellence and a commitment to innovation, our
           team brings together years of industry expertise to drive Titun Link
           Enterprise forward. Every member is dedicated to delivering
           outstanding solutions, building lasting partnerships, and ensuring our
           clients’ success in the mining sector and beyond.
         </p>
-
         <div class="grid md:grid-cols-3 gap-6">
           <!-- Fuad Kajuna -->
-          <div
-            class="card text-center"
-            data-aos="flip-left"
-          >
+          <div class="card text-center">
             <img
-              src="uploads/fuad-kajuna.png"
+              src="Uploads/fuad-kajuna.png"
               alt="Fuad Kajuna"
               class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg"
+              data-aos="fade-in"
+              data-aos-delay="100"
+              data-aos-out="fade-out"
             />
             <h3 class="font-bold text-lg text-teal-900">Fuad Kajuna</h3>
-            <!-- Reduced from xl (20px) to lg (18px) -->
             <p class="text-yellow-600 text-sm">Chief Executive Officer</p>
-            <!-- Reduced to sm (14px) -->
             <p class="text-gray-600 text-sm">0768500005 / 0744123006</p>
             <p class="text-gray-600 text-sm">kajunafuad@gmail.com</p>
             <a
@@ -528,23 +579,19 @@
               class="inline-block mt-4 bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors"
               >Chat on WhatsApp</a
             >
-            <!-- Reduced text size -->
           </div>
           <!-- Francis Ngasa -->
-          <div
-            class="card text-center"
-            data-aos="flip-left"
-            data-aos-delay="100"
-          >
+          <div class="card text-center">
             <img
-              src="uploads/francis-ngasa.png"
+              src="Uploads/francis-ngasa.png"
               alt="Francis Ngasa"
               class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg"
+              data-aos="fade-in"
+              data-aos-delay="200"
+              data-aos-out="fade-out"
             />
             <h3 class="font-bold text-lg text-teal-900">Francis Ngasa</h3>
-            <!-- Reduced from xl (20px) to lg (18px) -->
             <p class="text-yellow-600 text-sm">Director</p>
-            <!-- Reduced to sm (14px) -->
             <p class="text-gray-600 text-sm">0762913511 / 0689846489</p>
             <p class="text-gray-600 text-sm">francisamos97@gmail.com</p>
             <a
@@ -555,27 +602,35 @@
             >
           </div>
           <!-- Naima Suleiman -->
-          <div
-            class="card text-center"
-            data-aos="flip-left"
-            data-aos-delay="200"
-          >
+          <div class="card text-center">
             <img
-              src="uploads/naima-suleiman.jpg"
+              src="Uploads/naima-suleiman.jpg"
               alt="Naima Suleiman"
               class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg"
+              data-aos="fade-in"
+              data-aos-delay="300"
+              data-aos-out="fade-out"
             />
             <h3 class="font-bold text-lg text-teal-900">Naima Suleiman</h3>
-            <!-- Reduced from xl (20px) to lg (18px) -->
             <p class="text-yellow-600 text-sm">Director</p>
-            <!-- Reduced to sm (14px) -->
             <p class="text-gray-600 text-sm">0622242510</p>
             <a
               href="https://wa.me/255622242510?text=Hello%20Ms.%20Suleiman,%20I%20have%20a%20question%20about%20Titun%20Link%20Enterprise"
               target="_blank"
               class="inline-block mt-4 bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors"
-              >Chat on WhatsApp</a
             >
+              <svg
+                class="inline-block w-4 h-4 mr-2"
+                fill="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.47-.148-.669.15-.198.297-.767.966-.94 1.164-.174.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.134.297-.347.446-.52.149-.174.198-.297.297-.496.099-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.501-.173 0-.347-.025-.52-.074-.173-.049-.371-.148-.573-.297-.297-.198-.595-.347-.892-.495-.297-.149-.595-.074-.892.074-.297.149-1.255.966-1.255 2.356 0 1.389.892 2.735 1.066 2.933.173.198 2.357 3.583 5.834 5.034 3.477 1.451 3.477.991 4.094.991.617 0 1.983-.644 2.255-1.262.272-.617.272-1.164.198-1.262-.074-.099-.173-.198-.446-.347zM12 21.333c-5.143 0-9.333-4.19-9.333-9.333S6.857 2.667 12 2.667s9.333 4.19 9.333 9.333-4.19 9.333-9.333 9.333z"
+                />
+              </svg>
+              Chat on WhatsApp
+            </a>
           </div>
         </div>
       </section>
@@ -584,38 +639,28 @@
       <section
         id="contact"
         class="bg-teal-900 py-5 px-4"
-        data-aos="fade-up"
+        data-aos="fade-in"
       >
         <h2 class="text-2xl font-semibold text-white mb-6 text-center">
           Contact Us
         </h2>
-
         <div class="max-w-4xl mx-auto grid gap-8">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-            <!-- Left Column -->
             <div class="space-y-4">
-              <section id="contact">
-                <h2
-                  class="font-medium text-yellow-600 text-sm flex items-center"
-                >
-                  <i class="fas fa-map-marker-alt mr-2"></i>
-                  Address:
-                </h2>
-                <address class="text-white text-xs">
-                  Dar es Salaam, Kurasini, Africab Building, 4th Floor<br>
-                  Geita Katoro, Lwamgasa, Marekani Street<br>
-                </address>
-              </section>
+              <h2 class="font-medium text-yellow-600 text-sm flex items-center">
+                <i class="fas fa-map-marker-alt mr-2"></i> Address:
+              </h2>
+              <address class="text-white text-xs">
+                Dar es Salaam, Kurasini, Africab Building, 4th Floor<br />
+                Geita Katoro, Lwamgasa, Marekani Street<br />
+              </address>
             </div>
-
-            <!-- Right Column -->
             <div class="space-y-4 text-left md:text-left">
               <div>
                 <h2
                   class="font-medium text-yellow-600 text-sm flex items-center"
                 >
-                  <i class="fas fa-phone-alt mr-2"></i>
-                  Phone:
+                  <i class="fas fa-phone-alt mr-2"></i> Phone:
                 </h2>
                 <address class="text-white text-sm">
                   Fuad Kajuna:
@@ -623,9 +668,8 @@
                     href="https://wa.me/255748500005?text=Hello%20Titun%20Link%20Enterprise,%20I%20have%20a%20question"
                     target="_blank"
                     class="text-yellow-600 hover:underline"
+                    >+255 0748500005</a
                   >
-                    +255 0748500005
-                  </a>
                 </address>
                 <address class="text-white text-sm">
                   Francis Ngasa:
@@ -633,9 +677,8 @@
                     href="https://wa.me/255762913511?text=Hello%20Titun%20Link%20Enterprise,%20I%20have%20a%20question"
                     target="_blank"
                     class="text-yellow-600 hover:underline"
+                    >+255 0762913511</a
                   >
-                    +255 0762913511
-                  </a>
                 </address>
                 <address class="text-white text-sm">
                   Naima Suleiman:
@@ -643,9 +686,8 @@
                     href="https://wa.me/255622242510?text=Hello%20Titun%20Link%20Enterprise,%20I%20have%20a%20question"
                     target="_blank"
                     class="text-yellow-600 hover:underline"
+                    >+255 0622242510</a
                   >
-                    +255 0622242510
-                  </a>
                 </address>
               </div>
             </div>
@@ -660,60 +702,24 @@
         <p class="mb-4 text-sm">
           &copy; 2025 Titun Link Enterprise. All rights reserved.
         </p>
-        <!-- Reduced to sm (14px) -->
         <div class="flex justify-center space-x-6">
           <a
             href="https://wa.me/255748500005?text=Hello%20Titun%20Link,%20I%20need%20assistance"
             target="_blank"
             class="text-yellow-600 hover:text-yellow-400"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-              />
-            </svg>
           </a>
         </div>
       </div>
     </footer>
 
-    <!-- Floating WhatsApp Button -->
-    <a
-      href="https://wa.me/255748500005?text=Hello%20Titun%20Link,%20I%20need%20assistance"
-      target="_blank"
-      class="fixed bottom-6 right-6 bg-yellow-600 hover:bg-yellow-700 text-white p-4 rounded-full shadow-lg z-50 transition-transform duration-300 hover:scale-110"
-    >
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        class="h-6 w-6"
-        fill="none"
-        viewBox="0 0 24 24"
-        stroke="currentColor"
-      >
-        <path
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          stroke-width="2"
-          d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
-        />
-      </svg>
-    </a>
-
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script>
       AOS.init({
-        duration: 1000,
-        once: true,
+        duration: 800,
+        once: false, // Allow animations to repeat for fade-out
+        mirror: true, // Enable animations on scroll up/down
       })
     </script>
   </body>
