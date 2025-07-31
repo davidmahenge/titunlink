@@ -2,12 +2,24 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
     <title>Titun Link Enterprise</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" />
+    <link
+      href="https://unpkg.com/aos@2.3.4/dist/aos.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"
+    />
     <!-- <link rel="stylesheet" href="main.css" /> -->
     <style>
       body {
@@ -25,290 +37,652 @@
   <body class="bg-gray-100 text-gray-800 scroll-smooth">
     <!-- Navbar -->
     <header class="bg-teal-900 sticky top-0 z-50 shadow-lg">
-      <div class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center">
+      <div
+        class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"
+      >
         <div class="flex items-center gap-3">
-          <img src="Uploads/logo.png" alt="Titun Link Logo" class="h-10 w-10" />
-          <h1 class="text-xl font-bold text-yellow-600">Titun Link Enterprise</h1> <!-- Reduced from 2xl (24px) to xl (20px) -->
+          <img
+            src="Uploads/logo.png"
+            alt="Titun Link Logo"
+            class="h-10 w-10"
+          />
+          <h1 class="text-xl font-bold text-yellow-600">
+            Titun Link Enterprise
+          </h1>
+          <!-- Reduced from 2xl (24px) to xl (20px) -->
         </div>
         <!-- Hamburger Button (Mobile) -->
-        <button id="nav-toggle" class="md:hidden text-white focus:outline-none" aria-label="Open Menu">
-          <svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"> <!-- Reduced icon size -->
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-              d="M4 6h16M4 12h16M4 18h16" />
+        <button
+          id="nav-toggle"
+          class="md:hidden text-white focus:outline-none"
+          aria-label="Open Menu"
+        >
+          <svg
+            class="h-6 w-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <!-- Reduced icon size -->
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"
+            />
           </svg>
         </button>
         <!-- Desktop Nav -->
-        <nav class="hidden md:flex space-x-6 text-white font-medium text-sm"> <!-- Reduced from default (16px) to sm (14px) -->
-          <a href="#home" class="hover:text-yellow-400 transition-colors">Home</a>
-          <a href="#about" class="hover:text-yellow-400 transition-colors">About</a>
-          <a href="#departments" class="hover:text-yellow-400 transition-colors">Departments</a>
-          <a href="#team" class="hover:text-yellow-400 transition-colors">Team</a>
-          <a href="#contact" class="hover:text-yellow-400 transition-colors">Contact</a>
+        <nav class="hidden md:flex space-x-6 text-white font-medium text-sm" aria-label="Primary navigation" id="desktop-nav">
+          <!-- Reduced from default (16px) to sm (14px) -->
+          <a
+            href="#home"
+            class="hover:text-yellow-400 transition-colors"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="hover:text-yellow-400 transition-colors"
+            >About</a
+          >
+          <a
+            href="#departments"
+            class="hover:text-yellow-400 transition-colors"
+            >Departments</a
+          >
+          <a
+            href="#team"
+            class="hover:text-yellow-400 transition-colors"
+            >Team</a
+          >
+          <a
+            href="#contact"
+            class="hover:text-yellow-400 transition-colors"
+            >Contact</a
+          >
         </nav>
       </div>
       <!-- Mobile Nav -->
-      <nav id="mobile-nav" class="md:hidden hidden px-4 pb-4">
-        <div class="flex flex-col space-y-2 text-white font-medium text-sm bg-teal-900 rounded-lg shadow-lg"> <!-- Reduced to sm (14px) -->
-          <a href="#home" class="hover:text-yellow-400 transition-colors py-2 px-2">Home</a>
-          <a href="#about" class="hover:text-yellow-400 transition-colors py-2 px-2">About</a>
-          <a href="#departments" class="hover:text-yellow-400 transition-colors py-2 px-2">Departments</a>
-          <a href="#team" class="hover:text-yellow-400 transition-colors py-2 px-2">Team</a>
-          <a href="#contact" class="hover:text-yellow-400 transition-colors py-2 px-2">Contact</a>
+      <nav
+        id="mobile-nav"
+        class="md:hidden hidden px-4 pb-4" aria-label="Secondary navigation"
+      >
+        <div
+          class="flex flex-col space-y-2 text-white font-medium text-sm bg-teal-900 rounded-lg shadow-lg"
+        >
+          <!-- Reduced to sm (14px) -->
+          <a
+            href="#home"
+            class="hover:text-yellow-400 transition-colors py-2 px-2"
+            >Home</a
+          >
+          <a
+            href="#about"
+            class="hover:text-yellow-400 transition-colors py-2 px-2"
+            >About</a
+          >
+          <a
+            href="#departments"
+            class="hover:text-yellow-400 transition-colors py-2 px-2"
+            >Departments</a
+          >
+          <a
+            href="#team"
+            class="hover:text-yellow-400 transition-colors py-2 px-2"
+            >Team</a
+          >
+          <a
+            href="#contact"
+            class="hover:text-yellow-400 transition-colors py-2 px-2"
+            >Contact</a
+          >
         </div>
       </nav>
       <script>
         // Simple mobile nav toggle
-        const navToggle = document.getElementById('nav-toggle');
-        const mobileNav = document.getElementById('mobile-nav');
+        const navToggle = document.getElementById('nav-toggle')
+        const mobileNav = document.getElementById('mobile-nav')
         navToggle.addEventListener('click', () => {
-          mobileNav.classList.toggle('hidden');
-        });
+          mobileNav.classList.toggle('hidden')
+        })
         // Optional: Hide mobile nav on link click
-        mobileNav.querySelectorAll('a').forEach(link => {
+        mobileNav.querySelectorAll('a').forEach((link) => {
           link.addEventListener('click', () => {
-            mobileNav.classList.add('hidden');
-          });
-        });
+            mobileNav.classList.add('hidden')
+          })
+        })
       </script>
     </header>
 
-    <!-- Hero -->
-    <section id="home" class="relative flex items-center justify-center text-center py-32 bg-teal-900 min-h-[60vh]" data-aos="fade-up" style="background-image: url('Uploads/hero-bg.jpg'); background-size: cover; background-position: center;">
-      <div class="absolute inset-0 bg-teal-900 bg-opacity-60"></div>
-      <div class="relative z-10 max-w-4xl mx-auto px-4">
-        <h2 class="text-3xl font-bold text-white max-w-500 mb-6 text-left">Titun Link Enterprise Limited</h2> <!-- Reduced from 5xl (48px) to 3xl (30px) -->
-        <div class="text-base text-teal-900 max-w-2xl mx-auto mb-8 bg-white bg-opacity-70 rounded-lg p-0 rounded-lg p-4">
-          Titun Link Enterprise is a leading provider of high-quality mining supplies and equipment, dedicated to supporting the mining industry with innovative and reliable solutions. With a comprehensive range of products, from explosives, heavy machinery and tools to safety gear and consumables, we help mining operations optimize efficiency, improve safety, and minimize downtime.
+    <!-- Main Content -->
+    <main>
+      <!-- Hero -->
+      <section
+        id="home"
+        class="relative flex items-center justify-center text-center py-32 bg-teal-900 min-h-[60vh]"
+        data-aos="fade-up"
+        style="
+          background-image: url('uploads/hero-bg.jpg');
+          background-size: cover;
+          background-position: center;
+        "
+      >
+        <div class="absolute inset-0 bg-teal-900 bg-opacity-60"></div>
+        <div class="relative z-10 max-w-4xl mx-auto px-4">
+          <h2 class="text-3xl font-bold text-white max-w-500 mb-6 text-left">
+            Titun Link Enterprise Limited
+          </h2>
+          <!-- Reduced from 5xl (48px) to 3xl (30px) -->
+          <h3
+            class="text-base text-teal-900 max-w-3xl mx-auto mb-8 bg-white bg-opacity-65 rounded-lg p-0 rounded-lg p-4"
+          >
+            Titun Link Enterprise is a leading provider of high-quality mining
+            supplies and equipment, dedicated to supporting the mining industry
+            with innovative and reliable solutions. With a comprehensive range
+            of products, from explosives, heavy machinery and tools to safety
+            gear and consumables, we help mining operations optimize efficiency,
+            improve safety, and minimize downtime.
+          </h3>
+          <a
+            href="#departments"
+            class="inline-block text-teal-900 bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors"
+            >Discover Our Services</a
+          >
+          <!-- Reduced padding and text-sm (14px) -->
         </div>
-        <a href="#departments" class="inline-block text-teal-900 bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors">Discover Our Services</a> <!-- Reduced padding and text-sm (14px) -->
-      </div>
-    </section>
+      </section>
 
-   <!-- About -->
-<section id="about" class="py-5 px-4 max-w-7xl mx-auto" data-aos="fade-up">
-  <h2 class="text-2xl font-semibold text-teal-900 mb-6 text-center">About Our Company</h2>
-  <div class="grid md:grid-cols-2 gap-8">
-    <p class="text-gray-600 text-sm text-justify">
-      Titun Link Enterprise brings over seven years of expertise in supplying
-      high-quality mining consumables. Our commitment to reliability,
-      efficiency, and customer satisfaction has established us as a trusted
-      partner in the mining industry.
-    </p>
-    <p class="text-gray-600 text-sm text-justify">
-      Our main branch, strategically located in Katoro, Geita, has successfully met the demands
-      of clients in Lwamgasa, Nyarugusu, Katoro, Kakola, Kahama, and other areas within the
-      Lake Zone. We are committed to expanding our operations across key mining regions in
-      Tanzania and Southern Africa, further enhancing our reach and service delivery.
-    </p>
-  </div>
-</section>
-
-
-    <!-- Departments -->
-    <section id="departments" class="py-5 px-4 max-w-7xl mx-auto" data-aos="fade-up">
-      <h3 class="text-2xl font-semibold text-teal-900 mb-6 text-center">Our Departments</h3>
-      <p class="text-gray-600 mb-12 text-center text-sm"> 
-        Transforming Markets Through Disruption and Dominating Your Industry Landscape.
-        <br />
-        At Titun Link Enterprise, we are committed to delivering exceptional products and services across various sectors, including mining, construction, and logistics. Our diverse departments work collaboratively to provide innovative solutions that meet the unique needs of our clients.
-      </p>
-      <div class="max-w-7xl mx-auto space-y-8">
-        <!-- Explosives -->
-        <div class="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:scale-105 hover:opacity-90" data-aos="zoom-in" data-aos-delay="0">
-          <h4 class="text-xl font-bold text-teal-900 mb-4 text-left">Explosives</h4> <!-- Reduced from 3xl (30px) to xl (20px) -->
-          
-          <p class="text-gray-600 mb-6 text-sm">
-            Our explosives are sourced from reputable manufacturers, ensuring compliance with international safety standards and regulations. We prioritize safety and reliability in all our explosive products, providing our clients with the confidence they need for their mining and demolition projects.
+      <!-- About -->
+      <section
+        id="about"
+        class="py-5 px-4 max-w-7xl mx-auto"
+        data-aos="fade-up"
+      >
+        <h2 class="text-2xl font-semibold text-teal-900 mb-6 text-center">
+          About Our Company
+        </h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <p class="text-gray-600 text-sm text-justify">
+            Titun Link Enterprise brings over seven years of expertise in
+            supplying high-quality mining consumables. Our commitment to
+            reliability, efficiency, and customer satisfaction has established
+            us as a trusted partner in the mining industry.
           </p>
-          <p class="text-gray-600 mb-6 text-sm">
-          We provide safe, regulated explosives for mining,construction, and demolition, adhering to strict safety standards and legal compliance. Count on us for reliable solutions and expert support.
+          <p class="text-gray-600 text-sm text-justify">
+            Our main branch, strategically located in Katoro, Geita, has
+            successfully met the demands of clients in Lwamgasa, Nyarugusu,
+            Katoro, Kakola, Kahama, and other areas within the Lake Zone. We are
+            committed to expanding our operations across key mining regions in
+            Tanzania and Southern Africa, further enhancing our reach and
+            service delivery.
           </p>
-          <p class="text-gray-600 mb-6 text-sm">We specialize in importing a diverse range of explosive products, including but not limited to..</p> 
-          <ul class="list-disc list-inside text-gray-600 mb-6 text-sm">
-            <li><span class="font-semibold">EXPLOGEL:</span> A versatile and safe explosive gel for controlled blasting.</li>
-            <li><span class="font-semibold">NONELI:</span> Non-electric detonators for reliable and safe initiation.</li>
-            <li><span class="font-semibold">Detonating Fuses:</span> High-quality fuses for precise timing in blasting operations.</li>
-          </ul>
-          <div class="grid md:grid-cols-3 gap-6">
-            <img src="https://www.intrachem.co.zw/wp-content/uploads/2018/09/explogel-v4-760x424.jpg" class="h-64 w-full object-cover rounded-lg shadow" alt="Explosives 1" data-aos="fade-up" data-aos-delay="100" />
-            <img src="https://www.famesaexplosivos.com/wp-content/uploads/2023/12/CARMEX-Mecha-ensamblada-scaled-1.jpg" class="h-64 w-full object-cover rounded-lg shadow" alt="Explosives 2" data-aos="fade-up" data-aos-delay="200" />
-            <img src="https://nn.credotrans.ru/wp-content/uploads/sites/3/2020/06/zapalniki-elektryczne-skalne.jpg" class="h-64 w-full object-cover rounded-lg shadow" alt="Explosives 3" data-aos="fade-up" data-aos-delay="300" />
-          </div>
         </div>
-        <!-- Chemicals -->
-        <div class="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:scale-105 hover:opacity-90" data-aos="zoom-in" data-aos-delay="100">
-          <h4 class="text-xl font-bold text-teal-900 mb-4 text-left">Chemicals</h4> <!-- Reduced from 3xl (30px) to xl (20px) -->
-          
-          <p class="text-gray-600 mb-6 text-sm">
-            Our chemicals are sourced from reputable suppliers, ensuring compliance with international safety standards and regulations. We prioritize quality and reliability in all our chemical products, providing our clients with the confidence they need for their mining and industrial processes.
-          </p>
-          <p class="text-gray-600 mb-6 text-sm">
-            We are committed to sustainability and environmental responsibility, ensuring that our chemical products are safe for both the environment and human health. We work closely with our clients to ensure that they have access to the best chemical solutions that meet their operational needs while minimizing environmental impact.
-          </p>
-          <p class="text-gray-600 mb-6 text-sm">
-            Our chemicals are available in various forms and quantities, allowing us to cater to the specific requirements of our clients. Whether you need bulk chemicals for large-scale operations or smaller quantities for specialized applications, we have the right solutions for you.
-          </p>
-          <p class="text-gray-600 mb-6 text-sm">High-quality chemicals including Sodium Cyanide, Ammonium Nitrate, Caustic Soda, Mercury, and more.</p> <!-- Reduced to sm (14px) -->
-          <ul class="list-disc list-inside text-gray-600 mb-6 text-sm">
-            <li><span class="font-semibold">Sodium Cyanide:</span> Essential for gold extraction and other mining processes.</li>
-            <li><span class="font-semibold">Ammonium Nitrate:</span> Used in fertilizers and as an explosive in mining operations.</li>
-            <li><span class="font-semibold">Caustic Soda:</span> A versatile chemical used in various industrial applications.</li>
-            <li><span class="font-semibold">Mercury:</span> Used in gold processing and other chemical applications.</li>
-          </ul>
-          <div class="grid md:grid-cols-3 gap-6">
-            <img src="https://www.cnfreereagent.com/wp-content/uploads/2022/01/sodium-cyanide-use-in-gold-mining.jpg" class="h-64 w-full object-cover rounded-lg shadow" alt="Chemicals 1" data-aos="fade-up" data-aos-delay="100" />
-            <img src="https://www.epc-groupe.co.uk/wp-content/uploads/2019/01/Amonium-Nitrate.jpg" class="h-64 w-full object-cover rounded-lg shadow" alt="Chemicals 2" data-aos="fade-up" data-aos-delay="200" />
-            <img src="https://image.made-in-china.com/202f0j00AaobhNSDfkqE/1000-IV-Crushed-Carbon-Manufacturer.webp" class="h-64 w-full object-cover rounded-lg shadow" alt="Chemicals 3" data-aos="fade-up" data-aos-delay="300" />
-          </div>
-        </div>
-        <!-- Car Rental -->
-        <div class="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:scale-105 hover:opacity-90" data-aos="zoom-in" data-aos-delay="200">
-          <h4 class="text-xl font-bold text-teal-900 mb-4 text-left">Car Rental</h4> <!-- Reduced from 3xl (30px) to xl (20px) -->
-          <p class="text-gray-600 mb-6 text-sm">
-            Titun Link partners with prestigious hotels like Hyatt and Johari Lotana to provide exceptional car rental services for guests. This collaboration offers seamless and reliable transportation, enhancing guest experiences through luxury airport transfers and personalized itineraries, prioritizing convenience, comfort, and quality in hotel car rental services.
-          </p>
-          <ul class="list-disc list-inside text-gray-600 mb-6 text-sm">
-            <li><span class="font-semibold">Short-term:</span> Flexible vehicle for trips or vacations, lasting hours to weeks.</li>
-            <li><span class="font-semibold">Medium-term:</span> Vehicle option for a few months to a year.</li>
-            <li><span class="font-semibold">Long-term:</span> Ideal for businesses or individuals needing a vehicle for several years.</li>
-          </ul>
-          <p class="text-gray-600 mb-6 text-sm">
-            Our car rental services are designed to meet the diverse needs of our clients, whether for short-term trips, medium-term rentals, or long-term leasing. We offer a wide range of vehicles, from compact cars to luxury SUVs, ensuring that we have the right solution for every requirement.
-          </p>
-          <p class="text-gray-600 mb-6 text-sm">
-            We prioritize customer satisfaction and convenience, providing flexible rental options, competitive pricing, and exceptional service. Our team is dedicated to ensuring that our clients have a hassle-free rental experience, from booking to vehicle return.
-          </p>
-          <div>
+      </section>
+
+      <!-- Departments -->
+      <section
+        id="departments"
+        class="py-5 px-4 max-w-7xl mx-auto"
+        data-aos="fade-up"
+      >
+        <h2 class="text-2xl font-semibold text-teal-900 mb-6 text-center">
+          Our Departments
+        </h2>
+        <p class="text-gray-600 mb-12 text-center text-sm">
+          Transforming Markets Through Disruption and Dominating Your Industry
+          Landscape.
+          <br />
+          At Titun Link Enterprise, we are committed to delivering exceptional
+          products and services across various sectors, including mining,
+          construction, and logistics. Our diverse departments work
+          collaboratively to provide innovative solutions that meet the unique
+          needs of our clients.
+        </p>
+        <div class="max-w-7xl mx-auto space-y-8">
+          <!-- Explosives -->
+          <div
+            class="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:scale-105 hover:opacity-90"
+            data-aos="zoom-in"
+            data-aos-delay="0"
+          >
+            <h3 class="text-xl font-bold text-teal-900 mb-4 text-left">
+              Explosives
+            </h3>
+            <!-- Reduced from 3xl (30px) to xl (20px) -->
+
             <p class="text-gray-600 mb-6 text-sm">
-              CARPICKUP & DROPOFF : [SELF DRIVEN OR CHAUFFEUR DRIVEN]
+              Our explosives are sourced from reputable manufacturers, ensuring
+              compliance with international safety standards and regulations. We
+              prioritize safety and reliability in all our explosive products,
+              providing our clients with the confidence they need for their
+              mining and demolition projects.
+            </p>
+            <p class="text-gray-600 mb-6 text-sm">
+              We provide safe, regulated explosives for mining,construction, and
+              demolition, adhering to strict safety standards and legal
+              compliance. Count on us for reliable solutions and expert support.
+            </p>
+            <p class="text-gray-600 mb-6 text-sm">
+              We specialize in importing a diverse range of explosive products,
+              including but not limited to..
             </p>
             <ul class="list-disc list-inside text-gray-600 mb-6 text-sm">
-              <li>JULIUS NYERERE INTERNATIONAL AIRPORT</li>
-              <li>POSTA MPYA</li>
-              <li>MOROCCO</li>
+              <li>
+                <span class="font-semibold">EXPLOGEL:</span> A versatile and
+                safe explosive gel for controlled blasting.
+              </li>
+              <li>
+                <span class="font-semibold">NONELI:</span> Non-electric
+                detonators for reliable and safe initiation.
+              </li>
+              <li>
+                <span class="font-semibold">Detonating Fuses:</span>
+                High-quality fuses for precise timing in blasting operations.
+              </li>
             </ul>
+            <div class="grid md:grid-cols-3 gap-6">
+              <img
+                src="https://www.intrachem.co.zw/wp-content/uploads/2018/09/explogel-v4-760x424.jpg"
+                class="h-64 w-full object-cover rounded-lg shadow"
+                alt="Explosives 1"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                loading="lazy"
+              />
+              <img
+                src="https://www.famesaexplosivos.com/wp-content/uploads/2023/12/CARMEX-Mecha-ensamblada-scaled-1.jpg"
+                class="h-64 w-full object-cover rounded-lg shadow"
+                alt="Explosives 2"
+                data-aos="fade-up"
+                data-aos-delay="200"
+                loading="lazy"
+              />
+              <img
+                src="https://nn.credotrans.ru/wp-content/uploads/sites/3/2020/06/zapalniki-elektryczne-skalne.jpg"
+                class="h-64 w-full object-cover rounded-lg shadow"
+                alt="Explosives 3"
+                data-aos="fade-up"
+                data-aos-delay="300"
+                loading="lazy"
+              />
+            </div>
           </div>
-          <div class="grid md:grid-cols-3 gap-6">
-            <img src="https://images.automatrix.com/1/93377/59XrEgEp857.jpg" class="h-64 w-full object-cover rounded-lg shadow" alt="Car 1" data-aos="fade-up" data-aos-delay="100" />
-            <img src="https://crdms.images.consumerreports.org/c_lfill,w_563,q_auto,f_auto/prod/cars/chrome/white/2011TOY016a_640_01" class="h-64 w-full object-cover rounded-lg shadow" alt="Car 2" data-aos="fade-up" data-aos-delay="200" />
-            <img src="https://kupatana.com/api/v1/filestorage/image/large/77a2543a3bd0995e14e536d9a8df5984.jpg" class="h-64 w-full object-cover rounded-lg shadow" alt="Car 3" data-aos="fade-up" data-aos-delay="300" />
+          <!-- Chemicals -->
+          <div
+            class="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:scale-105 hover:opacity-90"
+            data-aos="zoom-in"
+            data-aos-delay="100"
+          >
+            <h3 class="text-xl font-bold text-teal-900 mb-4 text-left">
+              Chemicals
+            </h3>
+            <!-- Reduced from 3xl (30px) to xl (20px) -->
+
+            <p class="text-gray-600 mb-6 text-sm">
+              Our chemicals are sourced from reputable suppliers, ensuring
+              compliance with international safety standards and regulations. We
+              prioritize quality and reliability in all our chemical products,
+              providing our clients with the confidence they need for their
+              mining and industrial processes.
+            </p>
+            <p class="text-gray-600 mb-6 text-sm">
+              We are committed to sustainability and environmental
+              responsibility, ensuring that our chemical products are safe for
+              both the environment and human health. We work closely with our
+              clients to ensure that they have access to the best chemical
+              solutions that meet their operational needs while minimizing
+              environmental impact.
+            </p>
+            <p class="text-gray-600 mb-6 text-sm">
+              Our chemicals are available in various forms and quantities,
+              allowing us to cater to the specific requirements of our clients.
+              Whether you need bulk chemicals for large-scale operations or
+              smaller quantities for specialized applications, we have the right
+              solutions for you.
+            </p>
+            <p class="text-gray-600 mb-6 text-sm">
+              High-quality chemicals including Sodium Cyanide, Ammonium Nitrate,
+              Caustic Soda, Mercury, and more.
+            </p>
+            <!-- Reduced to sm (14px) -->
+            <ul class="list-disc list-inside text-gray-600 mb-6 text-sm">
+              <li>
+                <span class="font-semibold">Sodium Cyanide:</span> Essential for
+                gold extraction and other mining processes.
+              </li>
+              <li>
+                <span class="font-semibold">Ammonium Nitrate:</span> Used in
+                fertilizers and as an explosive in mining operations.
+              </li>
+              <li>
+                <span class="font-semibold">Caustic Soda:</span> A versatile
+                chemical used in various industrial applications.
+              </li>
+              <li>
+                <span class="font-semibold">Mercury:</span> Used in gold
+                processing and other chemical applications.
+              </li>
+            </ul>
+            <div class="grid md:grid-cols-3 gap-6">
+              <img
+                src="https://www.cnfreereagent.com/wp-content/uploads/2022/01/sodium-cyanide-use-in-gold-mining.jpg"
+                class="h-64 w-full object-cover rounded-lg shadow"
+                alt="Chemicals 1"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                loading="lazy"
+              />
+              <img
+                src="https://www.epc-groupe.co.uk/wp-content/uploads/2019/01/Amonium-Nitrate.jpg"
+                class="h-64 w-full object-cover rounded-lg shadow"
+                alt="Chemicals 2"
+                data-aos="fade-up"
+                data-aos-delay="200"
+                loading="lazy"
+              />
+              <img
+                src="https://image.made-in-china.com/202f0j00AaobhNSDfkqE/1000-IV-Crushed-Carbon-Manufacturer.webp"
+                class="h-64 w-full object-cover rounded-lg shadow"
+                alt="Chemicals 3"
+                data-aos="fade-up"
+                data-aos-delay="300"
+                loading="lazy"
+              />
+            </div>
+          </div>
+          <!-- Car Rental -->
+          <div
+            class="bg-white rounded-lg shadow-lg p-6 transition-all duration-300 hover:scale-105 hover:opacity-90"
+            data-aos="zoom-in"
+            data-aos-delay="200"
+          >
+            <h3 class="text-xl font-bold text-teal-900 mb-4 text-left">
+              Car Rental
+            </h3>
+            <!-- Reduced from 3xl (30px) to xl (20px) -->
+            <p class="text-gray-600 mb-6 text-sm">
+              Titun Link partners with prestigious hotels like Hyatt and Johari
+              Lotana to provide exceptional car rental services for guests. This
+              collaboration offers seamless and reliable transportation,
+              enhancing guest experiences through luxury airport transfers and
+              personalized itineraries, prioritizing convenience, comfort, and
+              quality in hotel car rental services.
+            </p>
+            <ul class="list-disc list-inside text-gray-600 mb-6 text-sm">
+              <li>
+                <span class="font-semibold">Short-term:</span> Flexible vehicle
+                for trips or vacations, lasting hours to weeks.
+              </li>
+              <li>
+                <span class="font-semibold">Medium-term:</span> Vehicle option
+                for a few months to a year.
+              </li>
+              <li>
+                <span class="font-semibold">Long-term:</span> Ideal for
+                businesses or individuals needing a vehicle for several years.
+              </li>
+            </ul>
+            <p class="text-gray-600 mb-6 text-sm">
+              Our car rental services are designed to meet the diverse needs of
+              our clients, whether for short-term trips, medium-term rentals, or
+              long-term leasing. We offer a wide range of vehicles, from compact
+              cars to luxury SUVs, ensuring that we have the right solution for
+              every requirement.
+            </p>
+            <p class="text-gray-600 mb-6 text-sm">
+              We prioritize customer satisfaction and convenience, providing
+              flexible rental options, competitive pricing, and exceptional
+              service. Our team is dedicated to ensuring that our clients have a
+              hassle-free rental experience, from booking to vehicle return.
+            </p>
+            <div>
+              <p class="text-gray-600 mb-6 text-sm">
+                CARPICKUP & DROPOFF : [SELF DRIVEN OR CHAUFFEUR DRIVEN]
+              </p>
+              <ul class="list-disc list-inside text-gray-600 mb-6 text-sm">
+                <li>JULIUS NYERERE INTERNATIONAL AIRPORT</li>
+                <li>POSTA MPYA</li>
+                <li>MOROCCO</li>
+              </ul>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+              <img
+                src="https://images.automatrix.com/1/93377/59XrEgEp857.jpg"
+                class="h-64 w-full object-cover rounded-lg shadow"
+                alt="Car 1"
+                data-aos="fade-up"
+                data-aos-delay="100"
+                loading="lazy"
+              />
+              <img
+                src="https://crdms.images.consumerreports.org/c_lfill,w_563,q_auto,f_auto/prod/cars/chrome/white/2011TOY016a_640_01"
+                class="h-64 w-full object-cover rounded-lg shadow"
+                alt="Car 2"
+                data-aos="fade-up"
+                data-aos-delay="200"
+                loading="lazy"
+              />
+              <img
+                src="https://kupatana.com/api/v1/filestorage/image/large/77a2543a3bd0995e14e536d9a8df5984.jpg"
+                class="h-64 w-full object-cover rounded-lg shadow"
+                alt="Car 3"
+                data-aos="fade-up"
+                data-aos-delay="300"
+                loading="lazy"
+              />
+            </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Team -->
-    <section id="team" class="py-5 px-4 max-w-7xl mx-auto" data-aos="fade-up">
-      <h4 class="text-2xl font-semibold text-teal-900 mb-6 text-center">Meet the Team</h4> <!-- Reduced from 4xl (36px) to 2xl (24px) -->
-      <p class="text-sm text-gray-600 mb-12 text-center">
-        The future of Africa's mining industry shines bright with immense potential to drive economic growth, innovation, and
-sustainable development. As the continent continues to harness its rich natural resources, advancements in
-technology, environmentally responsible practices, and investment in local communities will transform challenges
-into opportunities. Together, we can build a thriving, inclusive mining sector that not only supports industrial growth
-but also uplifts lives and contributes to a prosperous future for Africa and TITUN LINK will be part of the forefront of
-that endeavour
-      </p>
-      <p class="text-sm text-gray-600 mb-12 text-center"> <!-- Reduced from lg (18px) to sm (14px) -->
-        United by a passion for excellence and a commitment to innovation, our team brings together years of industry expertise to drive Titun Link Enterprise forward. Every member is dedicated to delivering outstanding solutions, building lasting partnerships, and ensuring our clients’ success in the mining sector and beyond.
-      </p>
-      
+      <!-- Team -->
+      <section
+        id="team"
+        class="py-5 px-4 max-w-7xl mx-auto"
+        data-aos="fade-up"
+      >
+        <h2 class="text-2xl font-semibold text-teal-900 mb-6 text-center">
+          Meet the Team
+        </h2>
+        <!-- Reduced from 4xl (36px) to 2xl (24px) -->
+        <p class="text-sm text-gray-600 mb-12 text-center">
+          The future of Africa's mining industry shines bright with immense
+          potential to drive economic growth, innovation, and sustainable
+          development. As the continent continues to harness its rich natural
+          resources, advancements in technology, environmentally responsible
+          practices, and investment in local communities will transform
+          challenges into opportunities. Together, we can build a thriving,
+          inclusive mining sector that not only supports industrial growth but
+          also uplifts lives and contributes to a prosperous future for Africa
+          and TITUN LINK will be part of the forefront of that endeavour
+        </p>
+        <p class="text-sm text-gray-600 mb-12 text-center">
+          <!-- Reduced from lg (18px) to sm (14px) -->
+          United by a passion for excellence and a commitment to innovation, our
+          team brings together years of industry expertise to drive Titun Link
+          Enterprise forward. Every member is dedicated to delivering
+          outstanding solutions, building lasting partnerships, and ensuring our
+          clients’ success in the mining sector and beyond.
+        </p>
 
-      
-      <div class="grid md:grid-cols-3 gap-6">
-        <!-- Fuad Kajuna -->
-        <div class="card text-center" data-aos="flip-left">
-          <img src="Uploads/fuad-kajuna.png" alt="Fuad Kajuna" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg" />
-          <h4 class="font-bold text-lg text-teal-900">Fuad Kajuna</h4> <!-- Reduced from xl (20px) to lg (18px) -->
-          <p class="text-yellow-600 text-sm">Chief Executive Officer</p> <!-- Reduced to sm (14px) -->
-          <p class="text-gray-600 text-sm">0768500005 / 0744123006</p>
-          <p class="text-gray-600 text-sm">kajunafuad@gmail.com</p>
-          <a href="https://wa.me/255748500005?text=Hello%20Mr.%20Kajuna,%20I%20have%20a%20question%20about%20Titun%20Link%20Enterprise" target="_blank" class="inline-block mt-4 bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors">Chat on WhatsApp</a> <!-- Reduced text size -->
+        <div class="grid md:grid-cols-3 gap-6">
+          <!-- Fuad Kajuna -->
+          <div
+            class="card text-center"
+            data-aos="flip-left"
+          >
+            <img
+              src="Uploads/fuad-kajuna.png"
+              alt="Fuad Kajuna"
+              class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg"
+              loading="lazy"
+            />
+            <h3 class="font-bold text-lg text-teal-900">Fuad Kajuna</h3>
+            <!-- Reduced from xl (20px) to lg (18px) -->
+            <p class="text-yellow-600 text-sm">Chief Executive Officer</p>
+            <!-- Reduced to sm (14px) -->
+            <p class="text-gray-600 text-sm">0768500005 / 0744123006</p>
+            <p class="text-gray-600 text-sm">kajunafuad@gmail.com</p>
+            <a
+              href="https://wa.me/255748500005?text=Hello%20Mr.%20Kajuna,%20I%20have%20a%20question%20about%20Titun%20Link%20Enterprise"
+              target="_blank"
+              class="inline-block mt-4 bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors"
+              >Chat on WhatsApp</a
+            >
+            <!-- Reduced text size -->
+          </div>
+          <!-- Francis Ngasa -->
+          <div
+            class="card text-center"
+            data-aos="flip-left"
+            data-aos-delay="100"
+          >
+            <img
+              src="Uploads/francis-ngasa.png"
+              alt="Francis Ngasa"
+              class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg"
+              loading="lazy"
+            />
+            <h3 class="font-bold text-lg text-teal-900">Francis Ngasa</h3>
+            <!-- Reduced from xl (20px) to lg (18px) -->
+            <p class="text-yellow-600 text-sm">Director</p>
+            <!-- Reduced to sm (14px) -->
+            <p class="text-gray-600 text-sm">0762913511 / 0689846489</p>
+            <p class="text-gray-600 text-sm">francisamos97@gmail.com</p>
+            <a
+              href="https://wa.me/255762913511?text=Hello%20Mr.%20Ngasa,%20I%20have%20a%20question%20about%20Titun%20Link%20Enterprise"
+              target="_blank"
+              class="inline-block mt-4 bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors"
+              >Chat on WhatsApp</a
+            >
+          </div>
+          <!-- Naima Suleiman -->
+          <div
+            class="card text-center"
+            data-aos="flip-left"
+            data-aos-delay="200"
+          >
+            <img
+              src="Uploads/naima-suleiman.jpg"
+              alt="Naima Suleiman"
+              class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg"
+              loading="lazy"
+            />
+            <h3 class="font-bold text-lg text-teal-900">Naima Suleiman</h3>
+            <!-- Reduced from xl (20px) to lg (18px) -->
+            <p class="text-yellow-600 text-sm">Director</p>
+            <!-- Reduced to sm (14px) -->
+            <p class="text-gray-600 text-sm">0622242510</p>
+            <a
+              href="https://wa.me/255622242510?text=Hello%20Ms.%20Suleiman,%20I%20have%20a%20question%20about%20Titun%20Link%20Enterprise"
+              target="_blank"
+              class="inline-block mt-4 bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors"
+              >Chat on WhatsApp</a
+            >
+          </div>
         </div>
-        <!-- Francis Ngasa -->
-        <div class="card text-center" data-aos="flip-left" data-aos-delay="100">
-          <img src="Uploads/francis-ngasa.png" alt="Francis Ngasa" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg" />
-          <h4 class="font-bold text-lg text-teal-900">Francis Ngasa</h4> <!-- Reduced from xl (20px) to lg (18px) -->
-          <p class="text-yellow-600 text-sm">Director</p> <!-- Reduced to sm (14px) -->
-          <p class="text-gray-600 text-sm">0762913511 / 0689846489</p>
-          <p class="text-gray-600 text-sm">francisamos97@gmail.com</p>
-          <a href="https://wa.me/255762913511?text=Hello%20Mr.%20Ngasa,%20I%20have%20a%20question%20about%20Titun%20Link%20Enterprise" target="_blank" class="inline-block mt-4 bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors">Chat on WhatsApp</a>
-        </div>
-        <!-- Naima Suleiman -->
-        <div class="card text-center" data-aos="flip-left" data-aos-delay="200">
-          <img src="Uploads/naima-suleiman.jpg" alt="Naima Suleiman" class="w-32 h-32 rounded-full mx-auto mb-4 shadow-lg" />
-          <h4 class="font-bold text-lg text-teal-900">Naima Suleiman</h4> <!-- Reduced from xl (20px) to lg (18px) -->
-          <p class="text-yellow-600 text-sm">Director</p> <!-- Reduced to sm (14px) -->
-          <p class="text-gray-600 text-sm">0622242510</p>
-          <a href="https://wa.me/255622242510?text=Hello%20Ms.%20Suleiman,%20I%20have%20a%20question%20about%20Titun%20Link%20Enterprise" target="_blank" class="inline-block mt-4 bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors">Chat on WhatsApp</a>
-        </div>
-      </div>
-    </section>
+      </section>
 
-    <!-- Contact -->
-    <section id="contact" class="bg-teal-900 py-5 px-4" data-aos="fade-up">
-  <h4 class="text-2xl font-semibold text-white mb-6 text-center">
-    Contact Us
-  </h4>
+      <!-- Contact -->
+      <section
+        id="contact"
+        class="bg-teal-900 py-5 px-4"
+        data-aos="fade-up"
+      >
+        <h2 class="text-2xl font-semibold text-white mb-6 text-center">
+          Contact Us
+        </h2>
 
-  <div class="max-w-4xl mx-auto grid gap-8">
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
-      <!-- Left Column -->
-      <div class="space-y-4">
-        <div>
-          <p class="font-medium text-yellow-600 text-sm flex items-center">
-            <i class="fas fa-map-marker-alt mr-2"></i>
-            Address:
-          </p>
-          <p class="text-white text-xs">Dar es Salaam, Kurasini, Africab Building, 4th Floor</p>
-          <p class="text-white text-xs">Africab Building, 4th Floor.</p>
-          <br />
-          <p class="text-white text-xs">Geita Katoro, Lwamgasa</p>
-          <p class="text-white text-xs">Marekani Street</p>
-        </div>
-      </div>
+        <div class="max-w-4xl mx-auto grid gap-8">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-8 w-full">
+            <!-- Left Column -->
+            <div class="space-y-4">
+              <section id="contact">
+                <h2
+                  class="font-medium text-yellow-600 text-sm flex items-center"
+                >
+                  <i class="fas fa-map-marker-alt mr-2"></i>
+                  Address:
+                </h2>
+                <address class="text-white text-xs">
+                  Dar es Salaam, Kurasini, Africab Building, 4th Floor<br>
+                  Geita Katoro, Lwamgasa, Marekani Street<br>
+                </address>
+              </section>
+            </div>
 
-      <!-- Right Column -->
-      <div class="space-y-4 text-left md:text-left">
-        <div>
-          <p class="font-medium text-yellow-600 text-sm flex items-center">
-            <i class="fas fa-phone-alt mr-2"></i>
-            Phone:
-          </p>
-          <p class="text-white text-sm">
-            Fuad Kajuna:
-            <a href="https://wa.me/255748500005?text=Hello%20Titun%20Link%20Enterprise,%20I%20have%20a%20question"
-               target="_blank" class="text-yellow-600 hover:underline">
-              +255 0748500005
-            </a>
-          </p>
-          <p class="text-white text-sm">
-            Francis Ngasa:
-            <a href="https://wa.me/255762913511?text=Hello%20Titun%20Link%20Enterprise,%20I%20have%20a%20question"
-               target="_blank" class="text-yellow-600 hover:underline">
-              +255 0762913511
-            </a>
-          </p>
-          <p class="text-white text-sm">
-            Naima Suleiman:
-            <a href="https://wa.me/255622242510?text=Hello%20Titun%20Link%20Enterprise,%20I%20have%20a%20question"
-               target="_blank" class="text-yellow-600 hover:underline">
-              +255 0622242510
-            </a>
-          </p>
+            <!-- Right Column -->
+            <div class="space-y-4 text-left md:text-left">
+              <div>
+                <h2
+                  class="font-medium text-yellow-600 text-sm flex items-center"
+                >
+                  <i class="fas fa-phone-alt mr-2"></i>
+                  Phone:
+                </h2>
+                <address class="text-white text-sm">
+                  Fuad Kajuna:
+                  <a
+                    href="https://wa.me/255748500005?text=Hello%20Titun%20Link%20Enterprise,%20I%20have%20a%20question"
+                    target="_blank"
+                    class="text-yellow-600 hover:underline"
+                  >
+                    +255 0748500005
+                  </a>
+                </address>
+                <address class="text-white text-sm">
+                  Francis Ngasa:
+                  <a
+                    href="https://wa.me/255762913511?text=Hello%20Titun%20Link%20Enterprise,%20I%20have%20a%20question"
+                    target="_blank"
+                    class="text-yellow-600 hover:underline"
+                  >
+                    +255 0762913511
+                  </a>
+                </address>
+                <address class="text-white text-sm">
+                  Naima Suleiman:
+                  <a
+                    href="https://wa.me/255622242510?text=Hello%20Titun%20Link%20Enterprise,%20I%20have%20a%20question"
+                    target="_blank"
+                    class="text-yellow-600 hover:underline"
+                  >
+                    +255 0622242510
+                  </a>
+                </address>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
+    </main>
 
     <!-- Footer -->
     <footer class="bg-teal-900 text-white text-center py-8">
       <div class="max-w-7xl mx-auto px-4">
-        <p class="mb-4 text-sm">&copy; 2025 Titun Link Enterprise. All rights reserved.</p> <!-- Reduced to sm (14px) -->
+        <p class="mb-4 text-sm">
+          &copy; 2025 Titun Link Enterprise. All rights reserved.
+        </p>
+        <!-- Reduced to sm (14px) -->
         <div class="flex justify-center space-x-6">
-          <a href="https://wa.me/255748500005?text=Hello%20Titun%20Link,%20I%20need%20assistance" target="_blank" class="text-yellow-600 hover:text-yellow-400">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+          <a
+            href="https://wa.me/255748500005?text=Hello%20Titun%20Link,%20I%20need%20assistance"
+            target="_blank"
+            class="text-yellow-600 hover:text-yellow-400"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="h-6 w-6"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+              />
             </svg>
           </a>
         </div>
@@ -316,9 +690,24 @@ that endeavour
     </footer>
 
     <!-- Floating WhatsApp Button -->
-    <a href="https://wa.me/255748500005?text=Hello%20Titun%20Link,%20I%20need%20assistance" target="_blank" class="fixed bottom-6 right-6 bg-yellow-600 hover:bg-yellow-700 text-white p-4 rounded-full shadow-lg z-50 transition-transform duration-300 hover:scale-110">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z" />
+    <a
+      href="https://wa.me/255748500005?text=Hello%20Titun%20Link,%20I%20need%20assistance"
+      target="_blank"
+      class="fixed bottom-6 right-6 bg-yellow-600 hover:bg-yellow-700 text-white p-4 rounded-full shadow-lg z-50 transition-transform duration-300 hover:scale-110"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        class="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"
+        />
       </svg>
     </a>
 
@@ -328,7 +717,7 @@ that endeavour
       AOS.init({
         duration: 1000,
         once: true,
-      });
+      })
     </script>
   </body>
 </html>
