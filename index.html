@@ -24,6 +24,7 @@
       body {
         font-family: 'Poppins', sans-serif;
         font-size: 14px;
+        overflow-x: hidden;
       }
       .section-heading {
         @apply text-2xl font-semibold text-yellow-600 mb-6 text-left;
@@ -34,17 +35,7 @@
       /* Add padding to sections to account for sticky header */
       section[id] {
         scroll-margin-top: 80px; /* Matches header height */
-      }
-      /* Vertical slide-in for desktop nav */
-      #desktop-nav a {
-        opacity: 0;
-        transform: translateY(-20px);
-        transition: opacity 0.5s ease, transform 0.5s ease;
-      }
-      #desktop-nav a.aos-animate {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      }     
       /* Vertical slide-in for mobile nav */
       #mobile-nav a {
         opacity: 0;
@@ -59,18 +50,20 @@
   </head>
   <body class="bg-gray-100 text-gray-800 scroll-smooth">
     <!-- Navbar -->
-    <header class="bg-teal-900 sticky top-0 z-50 shadow-lg">
-      <div
-        class="max-w-7xl mx-auto px-4 py-4 flex justify-between items-center"
-      >
+    <header class="bg-teal-900 sticky top-0 z-50 shadow-lg px-4 sm:px-4">
+      <div class="max-w-7xl mx-auto px-4 flex justify-between items-center">
         <div class="flex items-center gap-3">
-          <img
-            src="assets/logo.jpg"
-            alt="Titun Link Logo"
-            class="h-10 w-10"
-          />
+          <div style="width: 100px; height: fit-content; margin-left: 10px">
+            <a href="#home" class="hover:text-yellow-400 transition-colors">
+              <img
+                src="assets/logo.png"
+                alt="Titun Link Logo"
+                class="rounded-full"
+              />
+            </a>
+          </div>
           <h1 class="text-xl font-bold text-yellow-600">
-            Titun Link Enterprise
+            <a href="#home" class="hover:text-yellow-400 transition-colors">Titun Link Enterprise</a>
           </h1>
         </div>
         <button
@@ -98,13 +91,6 @@
           id="desktop-nav"
         >
           <a
-            href="#home"
-            class="hover:text-yellow-400 transition-colors"
-            data-aos="fade-down"
-            data-aos-delay="0"
-            >Home</a
-          >
-          <a
             href="#about"
             class="hover:text-yellow-400 transition-colors"
             data-aos="fade-down"
@@ -112,11 +98,11 @@
             >About</a
           >
           <a
-            href="#departments"
+            href="#services"
             class="hover:text-yellow-400 transition-colors"
             data-aos="fade-down"
             data-aos-delay="200"
-            >Departments</a
+            >services</a
           >
           <a
             href="#team"
@@ -143,13 +129,6 @@
           class="flex flex-col space-y-2 text-white font-medium text-sm bg-teal-900 rounded-lg shadow-lg"
         >
           <a
-            href="#home"
-            class="hover:text-yellow-400 transition-colors py-2 px-2"
-            data-aos="fade-down"
-            data-aos-delay="0"
-            >Home</a
-          >
-          <a
             href="#about"
             class="hover:text-yellow-400 transition-colors py-2 px-2"
             data-aos="fade-down"
@@ -157,11 +136,11 @@
             >About</a
           >
           <a
-            href="#departments"
+            href="#services"
             class="hover:text-yellow-400 transition-colors py-2 px-2"
             data-aos="fade-down"
             data-aos-delay="200"
-            >Departments</a
+            >services</a
           >
           <a
             href="#team"
@@ -215,7 +194,7 @@
     </header>
 
     <!-- Main Content -->
-    <main>
+    <main class="container mx-auto px-4 min-h-screen">
       <!-- Hero -->
       <section
         id="home"
@@ -244,7 +223,7 @@
             improve safety, and minimize downtime.
           </h3>
           <a
-            href="#departments"
+            href="#services"
             class="inline-block text-teal-900 bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors"
             >Discover Our Services</a
           >
@@ -278,14 +257,14 @@
         </div>
       </section>
 
-      <!-- Departments -->
+      <!-- services -->
       <section
-        id="departments"
+        id="services"
         class="py-5 px-4 max-w-7xl mx-auto"
         data-aos="fade-in"
       >
         <h2 class="text-2xl font-semibold text-teal-900 mb-6 text-center">
-          Our Departments
+          Our Services
         </h2>
         <p class="text-gray-600 mb-12 text-center text-sm">
           Transforming Markets Through Disruption and Dominating Your Industry
@@ -614,21 +593,12 @@
             <h3 class="font-bold text-lg text-teal-900">Naima Suleiman</h3>
             <p class="text-yellow-600 text-sm">Director</p>
             <p class="text-gray-600 text-sm">0622242510</p>
+            <p class="text-gray-600 text-sm">naimasuleiman@gmail.com</p>
             <a
               href="https://wa.me/255622242510?text=Hello%20Ms.%20Suleiman,%20I%20have%20a%20question%20about%20Titun%20Link%20Enterprise"
               target="_blank"
               class="inline-block mt-4 bg-yellow-600 hover:bg-yellow-700 text-white py-2 px-4 rounded-lg font-medium text-sm transition-colors"
             >
-              <svg
-                class="inline-block w-4 h-4 mr-2"
-                fill="currentColor"
-                viewBox="0 0 24 24"
-                xmlns="http://www.w3.org/2000/svg"
-              >
-                <path
-                  d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.272-.099-.47-.148-.669.15-.198.297-.767.966-.94 1.164-.174.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.134.297-.347.446-.52.149-.174.198-.297.297-.496.099-.198.05-.371-.025-.52-.074-.149-.669-1.612-.916-2.207-.242-.579-.487-.501-.669-.501-.173 0-.347-.025-.52-.074-.173-.049-.371-.148-.573-.297-.297-.198-.595-.347-.892-.495-.297-.149-.595-.074-.892.074-.297.149-1.255.966-1.255 2.356 0 1.389.892 2.735 1.066 2.933.173.198 2.357 3.583 5.834 5.034 3.477 1.451 3.477.991 4.094.991.617 0 1.983-.644 2.255-1.262.272-.617.272-1.164.198-1.262-.074-.099-.173-.198-.446-.347zM12 21.333c-5.143 0-9.333-4.19-9.333-9.333S6.857 2.667 12 2.667s9.333 4.19 9.333 9.333-4.19 9.333-9.333 9.333z"
-                />
-              </svg>
               Chat on WhatsApp
             </a>
           </div>
@@ -639,6 +609,7 @@
       <section
         id="contact"
         class="bg-teal-900 py-5 px-4"
+        style="margin-bottom: 8px"
         data-aos="fade-in"
       >
         <h2 class="text-2xl font-semibold text-white mb-6 text-center">
